@@ -1,0 +1,31 @@
+<md-tabs md-dynamic-height md-border-bottom>
+	<md-tab label="Type">
+		<md-content class="md-padding">
+			<md-radio-group class="demoRadioGroup" ng-model="chart.type">
+     			 <md-radio-button ng-repeat="type in chartTypes"
+                       ng-value="type.value"
+                       aria-label="{{type.value}}"
+                       class="md-warning">				        
+          		<md-icon class="md-display-3 icon-{{type.icon}}"></md-icon>
+		          {{type.value}}				         
+		      </md-radio-button>
+		    </md-radio-group>
+		</md-content>	
+	</md-tab>
+	<md-tab label="Data">
+		<md-content class="md-padding">
+			<hot-table
+			    colHeaders= "true"
+			    contextMenu= true
+			    datarows="table.data"
+			    height="300"			   
+			    width="700">
+			</hot-table>
+		</md-content>	
+	</md-tab>
+	<md-tab label="Styles">
+		<md-content class="md-padding">
+			3
+		</md-content>	
+	</md-tab>
+</md-tabs>
