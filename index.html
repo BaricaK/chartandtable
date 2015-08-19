@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app/bower_components/angular-chart.js/dist/angular-chart.css" />
+  <link rel="stylesheet" href="app/app.css">
+  <link href="https://fontastic.s3.amazonaws.com/MV5JU6AUzXfhoeTYANaEML/icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="app/bower_components/angular-material/angular-material.css"/>
+  <link rel="stylesheet" media="screen" href="app/bower_components/handsontable/dist/handsontable.full.css">
+</head>
+<body>
+  <div flex layout="row" ng-controller="DemoController as vm">
+  	<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
+  		<htc-chart-editor chart="vm.activeChart"></htc-chart-editor>
+  	</md-sidenav>
+	<md-content flex="33" offset="10" id="content">
+		<md-card ng-repeat="chart in vm.charts">
+			<md-card-content>
+				<canvas id="base" class="chart-base" chart-type="chart.type" click="onChartClick(chart)" 
+					data="chart.data"
+	  				labels="chart.labels"></canvas> 
+	  		</md-card-content>
+			<div class="md-actions" layout="row" layout-align="end center">
+		        <md-button ng-click="vm.editChart(chart)">Edit</md-button>		       
+		    </div>
+		</md-card>
+		<div layout="column" layout-align="center center">
+			<md-button class="md-fab" aria-label="Add chart" ng-click="vm.addChart()">
+           	 +
+        	</md-button>
+		</div> 
+	</md-content>  
+  </div>	
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="app/bower_components/angular/angular.js"></script>
+  <script src="app/bower_components/angular-route/angular-route.js"></script>
+  <script src="app/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="app/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="app/bower_components/Chart.js/Chart.min.js"></script>
+  <script src="app/bower_components/angular-chart.js/dist/angular-chart.js"></script>
+  <script src="app/bower_components/angular-material/angular-material.js"></script>  
+  <script src="app/bower_components/handsontable/dist/handsontable.full.js"></script>
+  <script src="app/bower_components/ngHandsontable/dist/ngHandsontable.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/handsontable-chart.module.js"></script>
+  <script src="app/arrayutils.service.js"></script>
+  <script src="app/chart-editor.directive.js"></script>
+  <script src="app/demo.js"></script>
+</body>
+</html>
