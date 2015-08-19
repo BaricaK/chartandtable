@@ -20,7 +20,7 @@
 		vm.editChart = editChart;
 		
 		function addChart() {
-			var newChart = {type: 'Bar', data:[[100, 100], labels: ["1", "2"]]};
+			var newChart = {type: 'Bar', data:[[100, 100]], labels: ["1", "2"]};
 			vm.charts.push(newChart);
 			editChart(newChart)
 		};
